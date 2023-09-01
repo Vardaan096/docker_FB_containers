@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    environment {
+        SSHUSERNAME = "antino"
+        SCRIPTPATH = ""
+        IP = "127.0.0.1"
+    }
+
+    stages {
+        stage('Deploy Containers') {
+            steps{
+                // Use the GitHub credentials to checkout your repository
+                checkout([$class: 'GitSCM',
+                    branches: [[name: 'your-branch-name']],
+		    doGenerateSubmoduleConfigurations: false,
+		    extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true, timeout: 10]],
+		    submoduleCfg: [],
+		    userRemoteConfigs: [[credentialsId: 'GitHubtoken', url: 'https://github.com/yourusername/your-repo.git']]]
+		)
+            }
+	}
+    }
+
+}
