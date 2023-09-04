@@ -2,24 +2,21 @@ pipeline {
     agent any
 
     environment {
-        SSHUSERNAME = "antino"
-        SCRIPTPATH = ""
-        IP = "127.0.0.1"
+        SSHUSERNAME = "ubuntu"
+        SCRIPTPATH = "/home/antino/Desktop/jenkins/project"
+        IP = "54.196.121.38"
     }
 
-    stages {
-        stage('Deploy Containers') {
+    stages{
+        stage('Build Deploy') {
             steps{
-                // Use the GitHub credentials to checkout your repository
-                checkout([$class: 'GitSCM',
-                    branches: [[name: 'your-branch-name']],
-		    doGenerateSubmoduleConfigurations: false,
-		    extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true, timeout: 10]],
-		    submoduleCfg: [],
-		    userRemoteConfigs: [[credentialsId: 'GitHubtoken', url: 'https://github.com/yourusername/your-repo.git']]]
-		)
+              sshagent (credentials: ['jenkins.pem']) {
+                sh "ssh -o StrictHostKeyChecking=no ${SSHUSERNAME}@${IP} 'cd ${SCRIPTPATH} && bash -x docker_shell_script.sh 2>&1'"
+                
+              }
             }
-	}
+        }
     }
-
+    
 }
+
