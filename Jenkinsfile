@@ -4,7 +4,7 @@ pipeline {
     environment {
         SSHUSERNAME = "ubuntu"
         SCRIPTPATH = "/home/antino/Downloads/docker_FB_containers"
-        IP = "54.196.121.38"
+        IP = "3.85.185.40"
     }
 
     stages {
