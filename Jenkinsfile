@@ -5,7 +5,7 @@ pipeline {
         SSHUSERNAME = "ubuntu"
         SCRIPTPATH = "/home/antino/Downloads/docker_FB_containers"
         IP = "54.196.121.38"
-        CREDENTIAL_ID = "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"
+        CREDENTIAL_ID = "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"
     }
 
     stages {
