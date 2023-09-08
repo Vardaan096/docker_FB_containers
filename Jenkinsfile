@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SSHUSERNAME = "ubuntu"
-        SCRIPTPATH = "/home/antino/Downloads/docker_FB_containers"
+        SCRIPTPATH = "/var/lib/jenkins/workspace/docker/"
         IP = "3.85.185.40"
     }
 
