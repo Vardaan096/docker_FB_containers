@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SSHUSERNAME = "ubuntu"
-        SCRIPTPATH = "/var/lib/jenkins/workspace/docker/"
+        SCRIPTPATH = "/var/lib/jenkins/workspace/docker"
         IP = "3.85.185.40"
     }
 
