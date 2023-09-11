@@ -4,7 +4,7 @@ pipeline {
     environment {
         SSHUSERNAME = "ubuntu"
         SCRIPTPATH = "/var/lib/jenkins/workspace/docker"
-        IP = "3.90.173.138"
+        IP = "3.81.80.168"
     }
 
     stages {
